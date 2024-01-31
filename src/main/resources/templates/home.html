@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Товары</h1>
+<div th:each="element : ${products}">
+    <p th:text="${element.title}"></p>
+    <p th:text="${element.description}"></p>
+    <p th:text="${element.price}"></p>
+    <p th:text="${element.city}"></p>
+    <p th:text="${element.author}"></p>
+    <a th:href="'/product/details/' + ${element.id}">детальнее</a>
+</div>
+<h4>Создать новый товар</h4>
+<form action="/product/create" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="введите название товара">
+    <input type="number" name="price" placeholder="цена">
+    <input type="text" name="city" placeholder="город">
+    <input type="text" name="author" placeholder="автор">
+    <textarea name="description" placeholder="описание"></textarea>
+<!--    </br>-->
+<!--    фото1: <input type="file" name="file1"></br>-->
+<!--    фото2: <input type="file" name="file2"></br>-->
+<!--    фото3: <input type="file" name="file3"></br>-->
+<!--    </br>-->
+    <button type="submit">Создать</button>
+</form>
+</body>
+</html>

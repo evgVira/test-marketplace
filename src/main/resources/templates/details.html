@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Товар</h1>
+<!--<img src="/images/${product.imagesList.get(0)}" height="60px"></br>-->
+<!--<img src="/images/${product.imagesList.get(1)}" height="60px"></br>-->
+<!--<img src="/images/${product.imagesList.get(2)}" height="60px"></br>-->
+<p th:text="${product.title}"></p>
+<p th:text="${product.description}"></p>
+<p th:text="${product.price}"></p>
+<p th:text="${product.city}"></p>
+<p th:text="${product.author}"></p>
+<form th:action="'/product/delete/' + ${product.id}" method="post">
+<button type="submit">удалить</button>
+</form>
+</body>
+</html>
